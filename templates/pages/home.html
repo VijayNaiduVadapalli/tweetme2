@@ -5,21 +5,61 @@ Twitter clone
 {%endblock head_title%}
 
 {% block content%}
+<div class='row text-center'>
+    <div class='col'>
+        <h1>Welcome to tweetme 2</h1> 
+    </div>
+</div>
+
+<div class='row' id="tweets">
+    loading
+</div>
 <script>
-const xhr=new XMLHttpRequest() //someclass
+const tweetsElement=document.getElementById("tweets") //getting html
+//tweetsElement.innerHTML='loading..' //setting html in that element
+
+//var el1="<h1> hi there</h1>"
+//var el2="<h2> hi there</h2>"
+//var el3="<h1> hi there</h1>"
+//tweetsElement.innerHTML= el1 + el2+ el3
+
+const xhr=new XMLHttpRequest() //someclass instance
 const method='GET'   //post
 const url="/tweets"
 const responseType="json"
+
+function handleDidLike(tweet_id,currentCount){
+      console.log(tweet_id,currentCount)
+      currentCount++  
+      return
+ }
+
+function LikeBtn(tweet){
+    return "<button class='btn btn-primary btn-sm' onclick=handleDidLike("
+     tweet.id+","+tweet.likes+")>"+tweet.likes +"likes</button>"
+ }
+
+function formatTweetElement(tweet)
+     var formattedTweet="<div class='col-12 col-md-10 mx-auto border rounded border-top py-3 mb-4' tweet' id='tweet-"+tweet.id 
+     +"'><p>" +tweet.content+
+         "</p><div class='btn-group'>"+LikeBtn()+ 
+        "</div></div>"
+     return formatTweetElement
 xhr.responseType=responseType
 xhr.open(method,url)
 xhr.onload=function(){
     const serverResponse=xhr.response
     var listedItems=serverResponse.response
-    console.log(listedItems)
+    var finalTweetStr=""
+    var i;
+    for (i=0;i<listedItems.length;i++){
+        var tweetObj=listedItems[i]
+        var currentItem=formattedTweetElement(tweetObj)
+        finalTweetStr+=currentItem
+    }
+    tweetsElement.innerHTML=finalTweetStr
+    //console.log(listedItems)
 }
 xhr.send()    
-
-
 </script>
-Welcome to Tweetme2
 {%endblock content%} 
