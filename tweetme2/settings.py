@@ -25,7 +25,7 @@ SECRET_KEY = 'mmnr*ra9x=vlcl+oq^cplum-&=!n&lqkivn=9rrek3!8tz@x03'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.cfe.sh', 'localhost']
 
 
 # Application definition
