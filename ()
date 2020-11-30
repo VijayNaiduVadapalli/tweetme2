@@ -1,0 +1,35 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   Pipfile
+#	modified:   Pipfile.lock
+#	modified:   db.sqlite3
+#	modified:   templates/pages/home.html
+#	modified:   tweetme2/__pycache__/settings.cpython-37.pyc
+#	modified:   tweetme2/__pycache__/urls.cpython-37.pyc
+#	modified:   tweetme2/settings.py
+#	modified:   tweetme2/urls.py
+#	modified:   tweets/__pycache__/admin.cpython-37.pyc
+#	modified:   tweets/__pycache__/forms.cpython-37.pyc
+#	modified:   tweets/__pycache__/models.cpython-37.pyc
+#	new file:   tweets/__pycache__/serializers.cpython-37.pyc
+#	modified:   tweets/__pycache__/views.cpython-37.pyc
+#	modified:   tweets/admin.py
+#	modified:   tweets/forms.py
+#	new file:   tweets/migrations/0003_auto_20201125_2111.py
+#	new file:   tweets/migrations/0004_auto_20201126_1943.py
+#	new file:   tweets/migrations/__pycache__/0003_auto_20201125_2111.cpython-37.pyc
+#	new file:   tweets/migrations/__pycache__/0004_auto_20201126_1943.cpython-37.pyc
+#	modified:   tweets/models.py
+#	new file:   tweets/serializers.py
+#	modified:   tweets/tests.py
+#	new file:   tweets/urls.py
+#	modified:   tweets/views.py
+#
+
