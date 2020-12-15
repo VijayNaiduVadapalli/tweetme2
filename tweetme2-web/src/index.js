@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {TweetsComponent} from './tweets'
 import reportWebVitals from './reportWebVitals';
 
+const tweetsE1=document.getElementById("tweetme-2")
+if(tweetsE1){
+  ReactDOM.render(<TweetsComponent/>,tweetsE1);
+}
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App /> 
   </React.StrictMode>,
   document.getElementById('root')
 );

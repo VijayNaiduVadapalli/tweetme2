@@ -25,7 +25,7 @@ SECRET_KEY = 'mmnr*ra9x=vlcl+oq^cplum-&=!n&lqkivn=9rrek3!8tz@x03'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'vijay']
+ALLOWED_HOSTS = ['127.0.0.1', 'vijay','localhost']
 LOGIN_URL="/login"
 MAX_TWEET_LENGTH=240
 TWEET_ACTION_OPTIONS=["like","unlike","retweet"]
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #Third-party
+    'corsheaders',
      'rest_framework',
      #Internal
     'tweets',
@@ -118,7 +119,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
-
+ 
 USE_TZ = True
 
 
@@ -128,19 +129,35 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,"static"),
+    ]
+STATIC_ROOT=os.path.join(BASE_DIR,"static-root")
+
+CORS_ORGIN_ALLOW_ALL=True #Any website can access to my api
+CORS_URLS_REGEX=r'^/api/.*$'
+
+
+
+
 DEFAULT_RENDERER_CLASSES=[
     'rest_framework.renderers.JSONRenderer',
 ]
+DEFAULT_AUTHENTICATION_CLASSES=[
+    'rest_framework.authentication.SessionAuthentication'
+]
+
 if DEBUG:
 
     #Copy pasted from DJANGO REST API auth,rendering
      DEFAULT_RENDERER_CLASSES+=[
         'rest_framework.renderers.BrowsableAPIRenderer',
-    ]
-REST_FRAMEWORK={
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.SessionAuthentication'
     ],
+     DEFAULT_AUTHENTICATION_CLASSES+=['tweetme2.rest_api.DevAuthentication']
+
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES':DEFAULT_AUTHENTICATION_CLASSES,
+        
     'DEFAULT_RENDERER_CLASSES':DEFAULT_RENDERER_CLASSES
 }
 
